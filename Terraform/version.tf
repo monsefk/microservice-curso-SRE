@@ -9,7 +9,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
  default_tags {
    tags = {
     owner = "monse"
@@ -17,7 +17,7 @@ provider "aws" {
  }
 }
 
-# Create a VPC
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
+variable "region" {
+description = "aws region"
+default = "us-east-1"
 }
